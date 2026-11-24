@@ -14,20 +14,32 @@ Demo mobile app (iOS + Android) untuk investor pitch: import laporan lab → Lab
 ```bash
 cd mobile
 npm install
-npx expo start            # scan QR dengan development build, atau tekan w untuk web
+npx expo start            # scan QR dengan Expo Go, atau tekan w untuk web
 npm run typecheck         # TypeScript
 npx expo lint             # ESLint
 ```
 
-Library native yang dipakai (kamera, print, haptics) butuh **development build**, bukan Expo Go:
-`npx eas-cli@latest build --profile development`.
+Semua library native yang dipakai (kamera, print, sharing, haptics, SVG, Reanimated) sudah termasuk di **Expo Go**, jadi tidak perlu development build untuk uji coba.
+
+## Uji di iPhone tanpa akun Apple Developer (Expo Go)
+
+Organisasi belum punya Apple Developer Program, jadi build iOS (TestFlight maupun ad hoc) belum bisa dibuat. Untuk uji coba di iPhone, pakai Expo Go:
+
+1. Pasang **Expo Go** dari App Store di iPhone.
+2. Di laptop: `cd mobile` lalu `npx expo start`. Jika iPhone dan laptop tidak di Wi-Fi yang sama, atau jaringan kantor memblokir koneksi antar-perangkat, pakai `npx expo start --tunnel`.
+3. Scan QR di terminal dengan aplikasi Kamera iPhone, lalu aplikasi terbuka di Expo Go.
+
+Catatan:
+- Nama, ikon, dan splash yang tampil milik Expo Go, bukan VitalsBrief. Laptop harus tetap menyala selama uji coba.
+- Expo Go di App Store hanya mendukung SDK Expo terbaru. Proyek ini memakai SDK 58. Jika Expo Go sudah pindah ke SDK berikutnya, jalankan `npx expo install expo@latest --fix` dulu.
+- Saat pitch, lebih aman pakai APK Android atau versi web, karena demo di Expo Go bergantung pada laptop dan koneksi.
 
 ## Build untuk pitch
 
 | Target | Perintah | Catatan |
 | --- | --- | --- |
 | Android APK | `npm run build:apk` | Profil `pitch` di `eas.json`, file APK langsung dipasang di HP demo |
-| iOS TestFlight | `npm run build:ios` | Butuh akun Apple Developer perusahaan |
+| iOS TestFlight | `npm run build:ios` | Belum bisa: butuh akun Apple Developer berbayar. Sementara pakai Expo Go (lihat atas) |
 | Web cadangan + halaman QR | `npm run deploy:web` | `expo export` lalu `wrangler pages deploy` ke project `vitalsbrief-demo` |
 
 Halaman QR GP Brief adalah route `/b/<token>` di build web yang sama. Isi brief dibawa di **URL fragment (`#…`)**, jadi tidak pernah dikirim ke server. Setelah deploy, pastikan `briefBaseUrl` di `brand.ts` sesuai domain Cloudflare Pages.

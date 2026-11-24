@@ -2,6 +2,7 @@
   "expo": {
     "name": "VitalsBrief",
     "slug": "vitalsbrief-demo",
+    "owner": "drpbuildlab",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -58,6 +59,11 @@
     "backgroundColor": "#F4F7F8",
     "experiments": {
       "typedRoutes": false
+    },
+    "extra": {
+      "eas": {
+        "projectId": "bab86227-5164-4bc8-b90c-563d76199dea"
+      }
     }
   }
 }
