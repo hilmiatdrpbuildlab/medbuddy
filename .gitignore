@@ -38,3 +38,7 @@ Thumbs.db
 .vscode/
 .idea/
 *.log
+
+# Internal strategy documents (do not commit)
+brief.txt
+feasibility_study.pdf

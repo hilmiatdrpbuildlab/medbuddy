@@ -1,0 +1,63 @@
+{
+  "expo": {
+    "name": "VitalsBrief",
+    "slug": "vitalsbrief-demo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "be.vitalsbrief.demo",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0B5D63",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": true,
+      "package": "be.vitalsbrief.demo"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "name": "VitalsBrief demo",
+      "themeColor": "#0B5D63",
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      "expo-sharing",
+      "expo-localization",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#F4F7F8",
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 120,
+          "dark": {
+            "backgroundColor": "#0B1416"
+          }
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "VitalsBrief uses the camera to photograph paper lab reports."
+        }
+      ]
+    ],
+    "scheme": "vitalsbrief",
+    "backgroundColor": "#F4F7F8",
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}
